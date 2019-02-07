@@ -6,11 +6,13 @@ node {
   }
   stage('test') {
     myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
+      sh 'apk add --no-cache bash'
       sh 'cd complete && ./gradlew test'
     }
   }
   stage('run') {
     myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
+      sh 'apk add --no-cache bash'
       sh 'cd complete && ./gradlew run'
     }
   }
