@@ -7,8 +7,7 @@ node {
   stage('test') {
     myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
       withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']) {
-        sh 'cd complete && chmod +x' 
-        sh './gradlew test'
+        sh 'cd complete && chmod +x ./gradlew test'
       }
     }
   }
